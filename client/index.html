@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Project Book</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <form onsubmit="app.projectController.createProject()">
+      <label for="projectName">Project Name</label>
+      <input name="projectName" type="text" required />
+      <label for="projectDescription">Project Description</label>
+      <input name="projectDescription" type="text" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="projects"></div>
+    <div class="active-project">
+      <div id="temp-card"></div>
+      <div id="projectDetails"></div>
+      <div id="contactList"></div>
+      <div class="hidden" id="contactForm">
+        <h3>Add Contact</h3>
+        <form onsubmit="app.contactsController.createContact()">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" required />
+          </div>
+          <button>Add Contact</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h3>Pokedex</h3>
+          <div id="pokelist"></div>
+        </div>
+        <div class="col">
+          <h3>Pokemon Details</h3>
+          <div id="activePokemon"></div>
+        </div>
+        <div class="col">
+          <h3>My Pokemon</h3>
+          <div id="myPokemon"></div>
+        </div>
+      </div>
+    </div>
+    <script src="app/main.js" type="module"></script>
+  </body>
+</html>
