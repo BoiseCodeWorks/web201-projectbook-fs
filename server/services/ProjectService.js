@@ -8,8 +8,8 @@ class ProjectService {
   async create(projectData) {
     return await _repository.create(projectData);
   }
-  async get() {
-    return await _repository.find({ deleted: false });
+  async get(query) {
+    return await _repository.find({ ...query, deleted: false });
   }
   async getById(id) {
     let project = await _repository.findById(id);

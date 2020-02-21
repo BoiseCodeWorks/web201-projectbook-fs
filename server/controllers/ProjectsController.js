@@ -13,7 +13,7 @@ export default class ProjectsController {
 
   async getAll(req, res, next) {
     try {
-      let data = await projectService.get();
+      let data = await projectService.get(req.query);
       return res.send(data);
     } catch (error) {
       next(error);
