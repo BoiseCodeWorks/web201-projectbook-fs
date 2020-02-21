@@ -26,7 +26,7 @@
       <div id="temp-card"></div>
       <div id="projectDetails"></div>
       <div id="contactList"></div>
-      <div class="hidden" id="contactForm">
+      <div class="d-none" id="contactForm">
         <h3>Add Contact</h3>
         <form onsubmit="app.contactsController.createContact()">
           <div>
@@ -35,23 +35,6 @@
           </div>
           <button>Add Contact</button>
         </form>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h3>Pokedex</h3>
-          <div id="pokelist"></div>
-        </div>
-        <div class="col">
-          <h3>Pokemon Details</h3>
-          <div id="activePokemon"></div>
-        </div>
-        <div class="col">
-          <h3>My Pokemon</h3>
-          <div id="myPokemon"></div>
-        </div>
       </div>
     </div>
     <script src="app/main.js" type="module"></script>

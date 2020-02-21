@@ -19,17 +19,11 @@ function drawProjectDetails() {
   document.getElementById("projectDetails").innerHTML = project.DetailTemplate;
 }
 
-function drawPokemon() {
-  document.getElementById("temp-card").innerHTML =
-    STORE.state.activePokemon.MyPokemonTemplate;
-}
-
 // The controllers job is to manage view
 export class ProjectController {
   constructor() {
-    drawProjects();
-    drawProjectDetails();
-    STORE.subscribe("activePokemon", drawPokemon);
+    STORE.subscribe("projects", drawProjects);
+    this.getProjects();
   }
 
   // Public Parts
@@ -45,7 +39,6 @@ export class ProjectController {
       });
       // @ts-ignore
       form.reset();
-      drawProjects();
     } catch (error) {
       alert(error);
     }
@@ -57,6 +50,14 @@ export class ProjectController {
       drawProjectDetails();
     } catch (error) {
       alert(error);
+    }
+  }
+
+  async getProjects() {
+    try {
+      await projectService.getProjects();
+    } catch (e) {
+      alert(e);
     }
   }
 }

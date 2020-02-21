@@ -39,10 +39,12 @@ server.use(bp.json());
 // TODO your job starts here
 import ValuesController from "./controllers/ValuesController";
 import ProjectsController from "./controllers/ProjectsController";
+import { ContactsController } from "./controllers/ContactsController";
 
 //NOTE remember the forward slash at the start of your path!
 server.use("/api/values", new ValuesController().router);
 server.use("/api/projects", new ProjectsController().router);
+server.use("/api/contacts", new ContactsController().router);
 
 // FIXME STOP!!!!!
 //NOTE Everything below this line always stays the same

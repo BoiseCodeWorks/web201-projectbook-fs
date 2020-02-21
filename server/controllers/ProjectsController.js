@@ -31,8 +31,8 @@ export default class ProjectsController {
 
   async create(req, res, next) {
     try {
-      let value = await projectService.create(req.body);
-      res.send(value);
+      let project = await projectService.create(req.body);
+      res.send(project);
     } catch (e) {
       next(e);
     }

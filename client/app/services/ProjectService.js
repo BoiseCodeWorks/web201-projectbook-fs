@@ -14,14 +14,31 @@ class ProjectService {
 
     STORE.state.activeProject = project;
   }
-  createProject(projectData) {
-    if (STORE.state.projects.length >= 3) {
-      throw new Error("You've exceeded your limit! Send us Money!!!");
-    }
+  async createProject(projectData) {
+    let response = await fetch("/api/projects", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(projectData)
+    });
 
-    let project = new Project(projectData);
+    let data = await response.json();
+
+    let project = new Project(data);
     STORE.state.projects.push(project);
+    STORE.commit("projects", STORE.state.projects); // [...STORE.state.projects, project]
+  }
+
+  async getProjects() {
+    let response = await fetch("/api/projects");
+    let data = await response.json();
+
+    let projects = data.map(p => new Project(p));
+    STORE.commit("projects", projects);
   }
 }
 
 export const projectService = new ProjectService();
+
+// client controller -> client service -> server controller -> server service -> db

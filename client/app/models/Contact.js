@@ -1,7 +1,7 @@
 import { generateId } from "../utils.js";
 
 export class Contact {
-  constructor({ name, projectId, id = generateId() }) {
+  constructor({ name, projectId, id }) {
     this.id = id;
     this.name = name;
     this.projectId = projectId;
